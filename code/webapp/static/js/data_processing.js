@@ -60,7 +60,6 @@ $(document).ready(function() {
 
 		tooltip: {
 			shared: true,
-			useHTML: true,
 		},
 
 		legend: {
@@ -81,12 +80,20 @@ $(document).ready(function() {
 		yAxis: [{ // Temperature
 			title: {
 				text: 'degrees Celsius',
+				margin: 3,
 			},
-			tickInterval: 1
+			tickInterval: 1,
+			labels: {
+				x: -5,
+			},
 		},
 		{ // Light intensity
 			title: {
 				text: 'lux',
+				margin: 3,
+			},
+			labels: {
+				x: 5,
 			},
 			opposite: true,
 			tickInterval: 1
