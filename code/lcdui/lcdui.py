@@ -43,7 +43,7 @@ class LcdUi:
             sensor_data = self.sensor_array.get_sensor_data()
 
             # Minimal preparation for multi-line and multi-sensor setup.
-            # Each sensor data is displayed in a seperate line, up to a configured
+            # Each sensor data is displayed in a separate line, up to a configured
             # number of lines for a given LCD.
             for i in range(0, self.lcd_line_num):
                 # Set cursor to the beginning of the line
