@@ -25,6 +25,11 @@ class LcdUi:
 
         # Grove LCD at any connector marked as I2C on the Grove Base Shield.
         # This would be I2C bus number 0.
+        # Double init is a workaround for a known issue, see
+        # https://github.com/intel-iot-devkit/upm/issues/280
+        self.grove_lcd = lcd.Jhd1313m1(0)
+        del self.grove_lcd
+        time.sleep(0.5)
         self.grove_lcd = lcd.Jhd1313m1(0)
         if not self.grove_lcd:
             raise ValueError("Cannot initialize Grove LCD")
