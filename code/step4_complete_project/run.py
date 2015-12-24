@@ -5,6 +5,8 @@ import time
 
 # This is our main control script, which starts all the pieces of our app
 
+print("Starting Web UI and LCD UI threads. See message below for address and port.")
+
 # Create a Web app/UI thread
 web_ui_thread = threading.Thread(target = flask_app.run,
                                  args = ('0.0.0.0',),
@@ -33,3 +35,4 @@ except KeyboardInterrupt:
     lcd_ui.stop()
     # Give the LCD UI time to shut down
     time.sleep(3)
+    print("Done. Goodbye!")
