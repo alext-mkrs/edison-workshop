@@ -5,7 +5,7 @@
     <body>
 		<!--- standard framework scripts --->
         <script src="/static/js/jquery-1.11.3.min.js"></script>
-        <script src="/static/js/highcharts.js"></script>		
+        <script src="/static/js/Chart.min.js"></script>		
 		<!--- our own script with chart and textual AJAX data update logic --->
 		<script src="/static/js/data_processing.js"></script>
 
@@ -19,7 +19,14 @@
             {% endfor %}
         </ul>
 
+		<div>
+			<h4>Sensor data chart</h4>
+			<div id="legend_container">
+			</div>
+		</div>
 		<!--- chart container --->
-        <div id="chart_container" style="width:100%; height:350px;"></div>
+		<div style="width:100%;height:350px">
+			<canvas id="chart_canvas" style="width:100%;height:350px"></canvas>
+		</div>
     </body>
 </html>
