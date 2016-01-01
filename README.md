@@ -26,3 +26,25 @@ Bill of materials (per one participant)
   if your participants want to pursue their own project within the allotted time.
 
 This is not the only possible set, but this is what I have and used extensively.
+
+Board preparation (per board)
+==============================
+
+```bash
+# Setup Internet connectivity
+$> configure_edison --setup
+
+# Configure package repo feeds
+$> cat >> /etc/opkg/base-feeds.conf <<EOF
+src/gz all http://repo.opkg.net/edison/repo/all
+src/gz edison http://repo.opkg.net/edison/repo/edison
+src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
+EOF
+
+# Change root password back to empty (Wi-Fi setup earlier enforces a non-empty one)
+$> passwd
+
+# Install necessary packages, Python modules, clone the workshop git repo,
+# zero out the Wi-Fi config (contains plaintext passphrase for WPA-PSK)
+$> opkg update && opkg install git vim vim-common vim-syntax vim-vimrc python-pip mraa upm && pip install flask && cd ~ && git clone https://github.com/alext-mkrs/edison-workshop.git && echo "" > /etc/wpa_supplicant/wpa_supplicant.conf && echo -e "\n\nDONE\n\n"
+```
