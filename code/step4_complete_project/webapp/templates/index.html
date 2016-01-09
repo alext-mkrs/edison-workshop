@@ -3,30 +3,30 @@
         <title>Weather station data</title>
     </head>
     <body>
-		<!--- standard framework scripts --->
+        <!--- standard framework scripts --->
         <script src="/static/js/jquery-1.11.3.min.js"></script>
-        <script src="/static/js/Chart.min.js"></script>		
-		<!--- our own script with chart and textual AJAX data update logic --->
-		<script src="/static/js/data_processing.js"></script>
+        <script src="/static/js/Chart.min.js"></script>
+        <!--- our own script with chart and textual AJAX data update logic --->
+        <script src="/static/js/data_processing.js"></script>
 
         <h1>Hello, weather station <i>{{ station_name }}</i> user</h1>
         <p>The weather data is:</p>
         <ul>
-			{% set index = 0 %}
+            {% set index = 0 %}
             {% for sensor_data_item in sensor_data %}
                 <li><span id=sensor_data_{{ index }}>{{ sensor_data_item['name'] }}: {{ sensor_data_item['value'] }} {{ sensor_data_item['units'] }}</span></li>
-				{% set index = index + 1 %}
+                {% set index = index + 1 %}
             {% endfor %}
         </ul>
 
-		<div>
-			<h2>Sensor data chart</h2>
-			<div id="legend_container">
-			</div>
-		</div>
-		<!--- chart container --->
-		<div style="width:100%;height:350px">
-			<canvas id="chart_canvas" style="width:100%;height:350px"></canvas>
-		</div>
+        <div>
+            <h2>Sensor data chart</h2>
+            <div id="legend_container">
+            </div>
+        </div>
+        <!--- chart container --->
+        <div style="width:100%;height:350px">
+            <canvas id="chart_canvas" style="width:100%;height:350px"></canvas>
+        </div>
     </body>
 </html>
